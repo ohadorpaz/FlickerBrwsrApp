@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>{{img_info.title._content}}</h3>
+<img src="http://farm{{img_info.farm}}.staticflickr.com/{{img_info.server}}/{{img_info.id}}_{{img_info.secret}}.jpg" />
+<h5>
+    <strong>By:</strong>
+    {% if img_info.owner.realname %}
+    {{img_info.owner.realname}}
+    {% else %}
+    {{img_info.owner.username}}
+    {% endif %}
+</h5>
+<h5><strong>Date Taken:</strong> {{img_info.dates.taken}}</h5>
+<h5><strong>URL:</strong><a href="{{img_info.urls.url[0]._content}}" target="_blank"> {{img_info.urls.url[0]._content}}</a></h5>
+{% endblock %}
