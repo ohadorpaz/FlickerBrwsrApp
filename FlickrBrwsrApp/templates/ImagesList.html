@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<!-- The grid: four columns -->
+{% if title %}
+<h3>{{title}}</h3>
+{% endif %}
+
 {% for pic in photos_list %}
 <a href="/imageDetails/{{pic.id}}"><img src="{{pic.thumbnail}}"></a>
 {% endfor %}
 
-{% if title %}
-<h3>{{title}}</h3>
-{% endif %}
 <div style="display: grid; grid-template-columns: 1fr 1fr; text-align: center;">
     {% if prev_page >= 1 %}
     {% if prefix %}
